@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> wd006 Monopoly Banka</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .player { margin: 20px; padding: 10px; border: 1px solid #000; display: inline-block; }
+        .buttons button { margin: 5px; padding: 10px; font-size: 18px; width: 60px; }
+        .input { font-size: 20px; width: 80px; text-align: center; }
+        .button-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+
+        /* Sayı input kutusunun genişliğini arttırıyoruz */
+#amountInput {
+    width: 100%; /* Genişliği %100 yaparak tüm alanı kapsamasını sağlıyoruz */
+    font-size: 24px; /* Yazı boyutunu büyütüyoruz */
+    padding: 10px; /* İçerideki yazıya biraz boşluk bırakıyoruz */
+    text-align: right; /* Yazıyı sağa hizalıyoruz */
+    box-sizing: border-box; /* Padding'ler dahil olacak şekilde kutuyu ayarlıyoruz */
+    max-width: 500px; /* Maksimum genişlik sınırlaması, dilerseniz istediğiniz gibi ayarlayabilirsiniz */
+    margin: 0 auto; /* Ortalayarak daha estetik görünmesini sağlıyoruz */
+}
+    </style>
+</head>
+<body>
+    <h1>Monopoly Banka</h1>
+
+    <div class="player" id="p1">
+        <h2>Oyuncu 1</h2>
+        <p>Bakiye: <span id="balance1">15000000</span></p>
+    </div>
+    <div class="player" id="p2">
+        <h2>Oyuncu 2</h2>
+        <p>Bakiye: <span id="balance2">15000000</span></p>
+    </div>
+    <div class="player" id="p3">
+        <h2>Oyuncu 3</h2>
+        <p>Bakiye: <span id="balance3">15000000</span></p>
+    </div>
+    <div class="player" id="p4">
+        <h2>Oyuncu 4</h2>
+        <p>Bakiye: <span id="balance4">15000000</span></p>
+    </div>
+
+    <h2>İşlem Yap</h2>
+    <div>
+        <label>Oyuncu Seç:</label>
+        <select id="playerSelect">
+            <option value="1">Oyuncu 1</option>
+            <option value="2">Oyuncu 2</option>
+            <option value="3">Oyuncu 3</option>
+            <option value="4">Oyuncu 4</option>
+        </select>
+    </div>
+
+    <div class="button-container">
+        <button onclick="baslangic">2M-EKLE</button>
+    </div>
+        
+
+    <div class="button-container">
+        <button onclick="addNumber(1)">1</button>
+
+        <button onclick="addNumber(2)">2</button>
+
+        <button onclick="addNumber(3)">3</button>
+
+        <button onclick="addNumber(4)">4</button>
+
+        <button onclick="addNumber(5)">5</button>
+        
+        <button onclick="addNumber(6)">6</button>
+        
+        <button onclick="addNumber(7)">7</button>
+        
+        <button onclick="addNumber(8)">8</button>
+        
+        <button onclick="addNumber(9)">9</button>
+        
+    </div>
+
+
+
+   
+
+    <div class="button-container">
+        <button onclick="updateBalance('+')">+</button>
+        <button onclick="addNumber(0)">0</button>
+        <button onclick="updateBalance('-')">-</button>
+        <br>
+       
+    </div>
+
+       <div class="button-container">
+        <button onclick="setMultiplier(1000)">K (×1000)</button>
+        <button onclick="setMultiplier(1000000)">M (×1.000.000)</button>
+           <button onclick="removeLastDigit()" style="background-color: grey; color: white;">Sil</button>
+           <br>
+    </div>
+    
+     <div>
+        <input id="amountInput" class="input" type="text" value="0" disabled>
+    </div>
+
+    <div class="buton-container"> 
+     <center>  <button onclick="resetBalances()" style="background-color: red; color: white;">RESET</button>
+  </center>  
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
